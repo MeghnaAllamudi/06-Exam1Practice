@@ -182,6 +182,7 @@ def problem2b(rect, n, delta, win):
       Must render but   ** NOT close **   the window.
 
     Type hints:
+
       :type rect:   rg.Rectangle
       :type n:      int
       :type delta:  int

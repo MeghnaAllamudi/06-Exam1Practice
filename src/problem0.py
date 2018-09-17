@@ -158,6 +158,14 @@ def problem0a(n):
       -- If the given integer is 246, this function returns False,
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
+
+    tf = sum_of_digits(n)
+    if tf % 2 == 0:
+        return False
+    elif tf % 2 == 1:
+        return True
+
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
