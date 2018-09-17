@@ -8,7 +8,7 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
+         Amanda Stouder, their colleagues and Meghna Allamudi
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -229,6 +229,12 @@ def problem0b(n):
       -- If n is 200, the correct answer is 46,
            since there are 46 primes between 2 and 200.
      """
+    count = 0
+    for k in range(2,n+1):
+        tf = is_prime(k)
+        if tf == True:
+            count = count + 1
+    return count
     # ------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).
@@ -297,6 +303,14 @@ def problem0c(circle, n, window):
       :type n: int
       :type window: rg.RoseWindow
     """
+    for k in range(n+1):
+        center1 = circle.center.x
+        center2 = circle.center.y
+        r = circle.radius
+        center_point = rg.Point(center1+(2*k*r),center2)
+        circle1 = rg.Circle(center_point,r)
+        circle1.attach_to(window)
+        window.render(0.5)
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #          Tests have been written for you (above).

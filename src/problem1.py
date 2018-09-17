@@ -2,7 +2,7 @@
 PRACTICE Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
+         Amanda Stouder, their colleagues and Meghna Allamudi.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
@@ -27,6 +27,7 @@ Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
 
 import testing_helper
 import time
+import math
 
 
 def main():
@@ -163,6 +164,11 @@ def problem1a(m, n):
          which is about 1.135.
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
+    total = 0
+    for k in range(m**2,n**2+1):
+        total = total + (math.sin(k))
+    return total
+
     # ------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -212,6 +218,12 @@ def problem1b(m, f):
       -- If m is 5 and f is 40, the correct answer is 44,
            since there are 44 primes between 5 and 200.
      """
+    count = 0
+    for k in range(m,(f*m)+1):
+        tf = is_prime(k)
+        if tf == True:
+            count = count + 1
+    return count
     # ------------------------------------------------------------------
     # TODO: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
@@ -306,6 +318,13 @@ def problem1c(n):
            and the product of those numbers is 223092870,
            and the sum of the digits in 223092870 is 33.
     """
+    product = 1
+    for k in range(2,n+1):
+        tf = is_prime(k)
+        if tf == True:
+            product = product * k
+    sum = sum_of_digits(product)
+    return sum
     # ------------------------------------------------------------------
     # TODO: 7. Implement and test this function.
     #          Tests have been written for you (above).

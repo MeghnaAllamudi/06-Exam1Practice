@@ -2,7 +2,7 @@
 PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
+         Amanda Stouder, their colleagues and Meghna Allamudi.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -101,6 +101,21 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+
+    line = rg.Line(rectangle.get_upper_right_corner(),rectangle.get_lower_left_corner())
+    line.arrow = 'last'
+    line.attach_to(window)
+    window.render()
+
+    window.continue_on_mouse_click()
+
+
+    circle.fill_color = rectangle.outline_color
+    circle.attach_to(window)
+    window.render()
     # ------------------------------------------------------------------
     # TODO: 2. Implement and test this function.
     #          Tests have been written for you (above).
@@ -172,6 +187,16 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+    rect.attach_to(win)
+    for k in range(n+1):
+        corner_1 = rg.Point(rect.get_upper_left_corner().x -(delta*k), rect.get_upper_left_corner().y-(delta*k))
+
+        corner_2 = rg.Point(rect.get_lower_right_corner().x + (delta*k),rect.get_lower_right_corner().y + (delta*k))
+
+        rectangle = rg.Rectangle(corner_1,corner_2)
+
+        rectangle.attach_to(win)
+        win.render()
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
